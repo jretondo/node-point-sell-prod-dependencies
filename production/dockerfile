@@ -23,9 +23,6 @@ RUN apk update && apk add --no-cache nss \
     npm install -g typescript pm2 && \
     npm install
 
-# Copiar el resto del código fuente
-COPY . .
-
 # Establecer Puppeteer para usar Chromium de la instalación del sistema
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
