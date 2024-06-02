@@ -19,13 +19,15 @@ RUN apk update && apk add --no-cache nss \
     ca-certificates \
     ttf-freefont \
     git \
+    tzdata \
     wget && \
     npm install -g typescript pm2 && \
     npm install
 
 # Establecer Puppeteer para usar Chromium de la instalación del sistema
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
+    TZ=America/Argentina/Buenos_Aires
+    
 # Comando por defecto para el contenedor
 CMD ["npm", "run", "start"]
