@@ -20,9 +20,11 @@ RUN apk update && apk add --no-cache nss \
     ttf-freefont \
     git \
     tzdata \
-    wget && \
-    npm install -g typescript pm2 && \
-    npm install
+    wget
+
+RUN npm install -g typescript pm2
+
+RUN npm install
 
 # Establecer Puppeteer para usar Chromium de la instalación del sistema
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
